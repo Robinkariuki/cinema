@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-
+import Heroimage from '../elements/HeroImage/Heroimage';
+import Searchbar from '../elements/Searchbar/searchbar';
+import fourcolgrid from '../elements/fourcolgrid/FourColGrid';
+import  Moviethumb from '../elements/Moviethumb/Moviethumb';
+import LoadMore from '../elements/LoadMore/LoadMorebtn';
+import Spinner from '../elements/Spinner/Spinner';
 
 class Home extends Component {
     state = {
