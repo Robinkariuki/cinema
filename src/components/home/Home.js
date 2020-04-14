@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Home.css';
 import {API_KEY,API_Url,Image_Base_Url,Backdrop_Size,Poster_Size}from'../../config';
 import Heroimage from '../elements/HeroImage/Heroimage';
 import Searchbar from '../elements/Searchbar/searchbar';
@@ -8,7 +7,7 @@ import  Moviethumb from '../elements/Moviethumb/Moviethumb';
 import LoadMore from '../elements/LoadMore/LoadMorebtn';
 import Spinner from '../elements/Spinner/Spinner';
 import FourColGrid from '../elements/fourcolgrid/FourColGrid';
-
+import './Home.css';
 class Home extends Component {
     state = {
         movies :[],
@@ -21,7 +20,7 @@ class Home extends Component {
     }
     componentDidMount(){
         this.setState({loading:true});
-        const endpoint = `${API_Url}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        const endpoint = `${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         this.fetchItems(endpoint);
     }
     loadmoreitems =() =>{
@@ -29,9 +28,9 @@ class Home extends Component {
         this.setState({loading:true});
 
         if(this.state.search ===''){
-            endpoint =`${API_Url}/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentpage+1}`
+            endpoint =`${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentpage+1}`
         }else{
-            endpoint=`${API_Url}\search\movie?apikey=${API_KEY}&language=en-US&query${this.state.searchterm}&page=${this.state.currentpage+1}`
+            endpoint=`${API_Url}search/movie?apikey=${API_KEY}&language=en-US&query${this.state.searchterm}&page=${this.state.currentpage+1}`
         }
         this.fetchItems(endpoint); 
     } 
@@ -52,8 +51,19 @@ class Home extends Component {
     render(){
         return(
             <div className='rmdb-home'>
-                <Heroimage/>
-                <Searchbar/>
+                {this.state.heroImage ?
+                <div>
+                  <Heroimage 
+                        image={`${Image_Base_Url}${Backdrop_Size}${this.state.heroImage.backdrop_path}`}
+                        title={this.state.heroImage.original_title}
+                        text={this.state.heroImage.overview}
+                        />
+                        
+
+                    <Searchbar/>
+
+                    </div> : null }
+                
                 <FourColGrid/>
                 <Spinner/>
                 <LoadMore/>
