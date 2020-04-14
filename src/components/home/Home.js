@@ -23,6 +23,23 @@ class Home extends Component {
         const endpoint = `${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         this.fetchItems(endpoint);
     }
+    searchItems= (searchterm) =>{
+        console.log(searchterm)
+        let endpoint = '';
+        this.setState({
+            movies:[],
+            loading:true,
+            searchterm:searchterm
+
+        })
+        if(searchterm === ''){
+            endpoint = `${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        }else{
+            endpoint = `${API_Url}movies?api_key=${API_KEY}&language=en-US&query=${searchterm}`;
+        }
+        this.fetchItems(endpoint);
+
+    }
     loadmoreitems =() =>{
         let endpoint ='';
         this.setState({loading:true});
@@ -34,6 +51,8 @@ class Home extends Component {
         }
         this.fetchItems(endpoint); 
     } 
+
+    
     fetchItems = (endpoint) => {
         fetch(endpoint)
         .then(result => result.json())
@@ -42,10 +61,14 @@ class Home extends Component {
               movies :[...this.state.movies, ...result.results],
               heroImage: this.state.heroImage || result.results[0],
               loading:false,
-              currentpage:result.total_pages
+              currentpage:result.page,
+              totalpages: result.total_pages
+
 
         });
     })
+    .catch(error => console.error('Error:',error))
+    
 }
 
     render(){
@@ -60,7 +83,7 @@ class Home extends Component {
                         />
                         
 
-                    <Searchbar/>
+                    <Searchbar callback={this.searchItems}/>
 
                     </div> : null }
                 
