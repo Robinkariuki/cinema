@@ -8,6 +8,7 @@ import LoadMore from '../elements/LoadMore/LoadMorebtn';
 import Spinner from '../elements/Spinner/Spinner';
 import FourColGrid from '../elements/fourcolgrid/FourColGrid';
 import './Home.css';
+import LoadMorebtn from '../elements/LoadMore/LoadMorebtn';
 class Home extends Component {
     state = {
         movies :[],
@@ -29,13 +30,13 @@ class Home extends Component {
         this.setState({
             movies:[],
             loading:true,
-            searchterm:searchterm
+            searchterm
 
         })
         if(searchterm === ''){
             endpoint = `${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         }else{
-            endpoint = `${API_Url}movies?api_key=${API_KEY}&language=en-US&query=${searchterm}`;
+            endpoint = `${API_Url}search/movie?api_key=${API_KEY}&language=en-US&query=${searchterm}`;
         }
         this.fetchItems(endpoint);
 
@@ -44,10 +45,11 @@ class Home extends Component {
         let endpoint ='';
         this.setState({loading:true});
 
-        if(this.state.search ===''){
-            endpoint =`${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentpage+1}`
+        if(this.state.search === ''){
+            endpoint =`${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentpage + 1}`;
         }else{
-            endpoint=`${API_Url}search/movie?apikey=${API_KEY}&language=en-US&query${this.state.searchterm}&page=${this.state.currentpage+1}`
+            endpoint=`${API_Url}search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.searchterm}&page=${this.state.currentpage + 1}`;
+            
         }
         this.fetchItems(endpoint); 
     } 
@@ -86,10 +88,31 @@ class Home extends Component {
                     <Searchbar callback={this.searchItems}/>
 
                     </div> : null }
+                <div className ='rmdb-home-grid'>
+                    <FourColGrid
+                      header ={this.state.searchterm ? 'search Result' : 'popular Movies'}
+                      loading = {this.state.loading}
                 
-                <FourColGrid/>
-                <Spinner/>
-                <LoadMore/>
+                    >
+                      {this.state.movies.map((element,i)=>{
+                          return <Moviethumb
+                                  key ={i}
+                                  clickable ={true}
+                                  image ={element.poster_path?`${Image_Base_Url}${Poster_Size}${element.poster_path}` :'./images/no_image.jpg'}
+                                  movieId ={element.id}
+                                  movieName ={element.original_title}
+                                  />
+                      })}  
+
+                    </FourColGrid>
+                    {this.state.loading ? <Spinner/> : null}
+                    {(this.state.currentpage <= this.state.totalpages && !this.state.loading) ?
+                      <LoadMorebtn text ='Load More' onClick ={this.loadmoreitems}/>
+                      : null }
+
+                </div>
+                
+                
                 
             </div>
         )
