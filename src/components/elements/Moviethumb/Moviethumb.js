@@ -1,6 +1,6 @@
 import React from 'react';
 import './Moviethumb.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Moviethumb = (props)=>{
     return(

@@ -1,19 +1,17 @@
 import React from 'react';
-import { link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css'
  const Header = ()=>{
      return(
-         <div>
-                <nav className="mb-4 navbar navbar-expand-lg navbar navbar-dark bg-dark  rmdb-header">
-                <a className="navbar-brand" href="#">
-                    <link>
-                    <img className='img' src="https://www.freepngimg.com/thumb/the_flash/5-2-flash-free-png-image.png" height="35" alt="image"></img>
-                   
-                    </link>
-                    </a>
+         <div className='rmdb-header'>
+             <div className='rmdb-header-content'>
+                 <link to ='/'>
+                     <img className='rmdb-logo' src='./images/reactMovie_logo.png' alt='rmdb-log'/> />
+                 </link>
+                 <img className ='rmdb-tmdb-log' src='./images/tmdb_logo.png' alt='tmdb-logo'/>
+                 
+             </div>
                
-            </nav> 
-             
          </div>
      )
  }
