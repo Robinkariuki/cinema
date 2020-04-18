@@ -11,11 +11,18 @@ import './Movie.css';
 
 
 class Movie extends Component {
+    state={
+        movie:null,
+        actors:null,
+        directors:[],
+        loading: false
+     
+    }
     render(){
         return(
             <div className='rmdb-movie'>
                 <Navigation/>
-                
+                <Info/>
                 <MovieInfoBar/>
                 <FourColgrid/>
                 <Spinner/>
