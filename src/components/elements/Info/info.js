@@ -1,16 +1,16 @@
 import React from 'react';
-import { Poster_Size,Image_Base_Url, Backdrop_Size } from '../../../config';
+import { Poster_Size,Image_Base_Url, Backdrop_Size } from'../../../config';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Moviethumb from '../Moviethumb/Moviethumb';
-import './Movieinfo.css';
+import './info.css';
 
-const Movieinfo = (props)=>{
+const Info = (props)=>{
     return(
         <div>
-
+         Info
         </div>
     )
 }
 
 
-export default Movieinfo;
+export default Info;
