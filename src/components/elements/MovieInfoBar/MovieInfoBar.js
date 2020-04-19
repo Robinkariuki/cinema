@@ -4,7 +4,7 @@ import './MovieInfoBar.css';
 import {calcTime, convertMoney} from '../../../helpers';
 
 
-const MovieInfoBar = ()=>{
+const MovieInfoBar = (props)=>{
     return(
         <div className='rmdb-movieinfobar'>
             <div className='rmdb-movieinfobar-content'>
@@ -21,7 +21,7 @@ const MovieInfoBar = ()=>{
               <div className ='rmdb-movieinfobar-content-col'>
                   <FontAwesomeIcon className='fa-revenue' name='ticket' size='2x'/>
                   <span className ='rmdb-movieinfobar-info'> Revenue: {convertMoney(props.revenue)}</span>
-                  
+
                   </div>      
 
             </div>
