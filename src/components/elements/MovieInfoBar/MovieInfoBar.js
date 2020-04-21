@@ -6,7 +6,7 @@ import {calcTime, convertMoney} from '../../../helpers';
 
 const MovieInfoBar = (props)=>{
     return(
-        <div className='rmdb-movieinfobar'>
+        <div className='rmdb-movieinfobar '>
             <div className='rmdb-movieinfobar-content'>
                 <div className='rmdb-movieinfobar-content-col'>
                     <FontAwesomeIcon className='fa-time' name='clock-o' size='2x'/>

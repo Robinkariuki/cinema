@@ -8,7 +8,7 @@ import Spinner from'../elements/Spinner/Spinner';
 import Info from '../elements/Info/info'
 
 import './Movie.css';
-import { JsxEmit } from 'typescript';
+
 
 
 class Movie extends Component {
@@ -30,7 +30,7 @@ class Movie extends Component {
         fetch(endpoint)
         .then(result => result.json())
         .then(result => {
-            console.log(result)
+            
             if (result.status_code){
                 this.setState({loading:false})
             }else{
@@ -60,12 +60,12 @@ class Movie extends Component {
 
     render(){
         return(
-            <div className='rmdb-movie'>
-               {this.statemovie ?
+             <div className='rmdb-movie'>
+               {this.state.movie ?
                <div>
-                   <Navigation movie={this.location.movieName}/>
-                   <Info movie ={this.state.movie} directors={this.state.directors}/>
-                   <MovieInfoBar time={this.state.movie.runtime} budget={this.state.movie.budget} revenue={this.state.movie.revenue}/>
+                <Navigation/>
+                <Info movie ={this.state.movie} directors={this.state.directors}/>
+                <MovieInfoBar time={this.state.movie.runtime} budget={this.state.movie.budget} revenue={this.state.movie.revenue}/>
 
                </div>
                : null }
