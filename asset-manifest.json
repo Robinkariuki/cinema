@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/https//Robinkariuki.github.io/cinema/static/css/main.bd264571.chunk.css",
+    "main.js": "/https//Robinkariuki.github.io/cinema/static/js/main.9452706d.chunk.js",
+    "main.js.map": "/https//Robinkariuki.github.io/cinema/static/js/main.9452706d.chunk.js.map",
+    "runtime-main.js": "/https//Robinkariuki.github.io/cinema/static/js/runtime-main.30aeb063.js",
+    "runtime-main.js.map": "/https//Robinkariuki.github.io/cinema/static/js/runtime-main.30aeb063.js.map",
+    "static/js/2.2e1f2dca.chunk.js": "/https//Robinkariuki.github.io/cinema/static/js/2.2e1f2dca.chunk.js",
+    "static/js/2.2e1f2dca.chunk.js.map": "/https//Robinkariuki.github.io/cinema/static/js/2.2e1f2dca.chunk.js.map",
+    "index.html": "/https//Robinkariuki.github.io/cinema/index.html",
+    "precache-manifest.9ca80a9c626567d751fe2204fb1dca0f.js": "/https//Robinkariuki.github.io/cinema/precache-manifest.9ca80a9c626567d751fe2204fb1dca0f.js",
+    "service-worker.js": "/https//Robinkariuki.github.io/cinema/service-worker.js",
+    "static/css/main.bd264571.chunk.css.map": "/https//Robinkariuki.github.io/cinema/static/css/main.bd264571.chunk.css.map",
+    "static/js/2.2e1f2dca.chunk.js.LICENSE.txt": "/https//Robinkariuki.github.io/cinema/static/js/2.2e1f2dca.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.30aeb063.js",
+    "static/js/2.2e1f2dca.chunk.js",
+    "static/css/main.bd264571.chunk.css",
+    "static/js/main.9452706d.chunk.js"
+  ]
+}
