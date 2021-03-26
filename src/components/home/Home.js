@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import {API_KEY,API_Url,Image_Base_Url,Backdrop_Size,Poster_Size}from'../../config';
 import Heroimage from '../elements/HeroImage/Heroimage';
 import Searchbar from '../elements/Searchbar/searchbar';
-import fourcolgrid from '../elements/fourcolgrid/FourColGrid';
 import  Moviethumb from '../elements/Moviethumb/Moviethumb';
-import LoadMore from '../elements/LoadMore/LoadMorebtn';
+import LoadMorebtn from '../elements/LoadMore/LoadMorebtn';
 import Spinner from '../elements/Spinner/Spinner';
 import FourColGrid from '../elements/fourcolgrid/FourColGrid';
 import './Home.css';
-import LoadMorebtn from '../elements/LoadMore/LoadMorebtn';
+
 class Home extends Component {
     state = {
         movies :[],
@@ -25,7 +24,7 @@ class Home extends Component {
         this.fetchItems(endpoint);
     }
     searchItems= (searchterm) =>{
-        console.log(searchterm)
+    
         let endpoint = '';
         this.setState({
             movies:[],
@@ -41,16 +40,15 @@ class Home extends Component {
         this.fetchItems(endpoint);
 
     }
-    loadmoreitems =() =>{
+  loadmoreitems =() =>{
         let endpoint ='';
         this.setState({loading:true});
 
-        if(this.state.search === ''){
-            endpoint =`${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentpage + 1}`;
-        }else{
-            endpoint=`${API_Url}search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.searchterm}&page=${this.state.currentpage + 1}`;
+       
+        endpoint =`${API_Url}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentpage + 1}`;
+       
             
-        }
+        
         this.fetchItems(endpoint); 
     } 
 
